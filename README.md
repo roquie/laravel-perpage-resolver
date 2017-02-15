@@ -6,25 +6,25 @@ This package add the same method `perPageResolver` like as `currentPageResolver`
 
 ## How to use
 
-For the beginning, install composer package: <br>
-```php
-    composer require roquie/laravel-perpage-resolver
+For the beginning, install composer package: 
+```
+composer require roquie/laravel-perpage-resolver
 ```
 
 Second, you should extends package Model class:
 
 ```php
-    class User extends \Roquie\LaravelPerPageResolver\Model
-    {
-    // ...
+class User extends \Roquie\LaravelPerPageResolver\Model
+{
+// ...
 ```
 
 Third, apply a service provider it's here:
 
 ```php
-    // config/app.php, the providers array
-    // ...
-    Roquie\LaravelPerPageResolver\PerPageResolverServiceProvider::class,
+// config/app.php, the providers array
+// ...
+Roquie\LaravelPerPageResolver\PerPageResolverServiceProvider::class,
 ```
 
 Run it!
