@@ -1,0 +1,25 @@
+{
+    "name": "roquie/laravel-perpage-resolver",
+    "description": "Add a few feature to resolve per_page query parameter globally.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "roquie",
+            "email": "roquie0@gmail.com"
+        }
+    ],
+    "require": {
+        "illuminate/database": "^5.2|^5.3|^5.4",
+        "illuminate/pagination": "^5.2|^5.3|^5.4",
+        "illuminate/support": "^5.2|^5.3|^5.4"
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^3.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Roquie\\LaravelPerPageResolver\\": "src"
+        }
+    }
+}
