@@ -1,6 +1,9 @@
 Laravel PerPage Resolver
 ========================
 
+[![Build Status](https://travis-ci.org/roquie/laravel-perpage-resolver.svg?branch=master)](https://travis-ci.org/roquie/laravel-perpage-resolver)
+[![Coverage Status](https://coveralls.io/repos/github/roquie/laravel-perpage-resolver/badge.svg?branch=master)](https://coveralls.io/github/roquie/laravel-perpage-resolver?branch=master)
+
 This package add the same method `perPageResolver` like as `currentPageResolver`. Now,
 `?per_page=100` parameter have a globally access for all models (like `?page=2`). 
 
@@ -31,8 +34,8 @@ Run it!
 
 ## Tests
 
-PR are welcome ;)
+100% code coverage. Includes integration tests.
 
 ## License
  
-MIT 
+[MIT](./LICENSE)
