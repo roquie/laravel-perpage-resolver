@@ -8,8 +8,6 @@
 
 namespace Roquie\LaravelPerPageResolver;
 
-use Closure;
-
 /**
  * Class Paginator
  *
@@ -27,9 +25,9 @@ class Paginator extends \Illuminate\Pagination\Paginator
     /**
      * Set the per page resolver callback.
      *
-     * @param \Closure $resolver
+     * @param callable $resolver
      */
-    public static function perPageResolver(Closure $resolver)
+    public static function perPageResolver(callable $resolver)
     {
         static::$perPageResolver = $resolver;
     }
@@ -41,7 +39,7 @@ class Paginator extends \Illuminate\Pagination\Paginator
      */
     public static function resolvePerPage()
     {
-        if (isset(static::$perPageResolver)) {
+        if (null !== static::$perPageResolver) {
             return call_user_func(static::$perPageResolver);
         }
 
