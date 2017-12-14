@@ -20,6 +20,9 @@ class PerPageResolverServiceProviderTest extends TestCase
         $app = m::mock(Application::class, function (MockInterface $m) {
             $m->shouldReceive('get')
               ->andReturn(new class {
+                  public function all() {
+                      return ['foo' => 'bar'];
+                  }
                   public function query() {
                       return 100;
                   }
@@ -30,6 +33,7 @@ class PerPageResolverServiceProviderTest extends TestCase
         $provider->register();
 
         $this->assertSame(100, Paginator::resolvePerPage());
+        $this->assertSame(['foo' => 'bar'], Paginator::resolveQueryParameters());
     }
 
     public function tearDown()

@@ -14,15 +14,7 @@ For the beginning, install composer package:
 composer require roquie/laravel-perpage-resolver
 ```
 
-Second, you should extends package Model class:
-
-```php
-class User extends \Roquie\LaravelPerPageResolver\Model
-{
-// ...
-```
-
-Third, apply a service provider it's here:
+Second, apply a service provider it's here (if you use Laravel 5.5+ [it's no need anymore](https://laravel-news.com/package-auto-discovery)):
 
 ```php
 // config/app.php, the providers array
@@ -30,7 +22,35 @@ Third, apply a service provider it's here:
 Roquie\LaravelPerPageResolver\PerPageResolverServiceProvider::class,
 ```
 
+Third, you can use `PerPageResolverTrait` in your models (recommended):
+
+```php
+use Illuminate\Database\Eloquent\Model;
+use Roquie\LaravelPerPageResolver\PerPageResolverTrait;
+
+class User extends Model
+{
+    use PerPageResolverTrait;
+// ...
+```
+
+... or extends package Model class:
+
+```php
+class User extends \Roquie\LaravelPerPageResolver\Model
+{
+// ...
+```
+
 Run it!
+
+## Upgrade
+
+So, if you update the package from `1.0.0`  to `1.1.0` version what you need to know:
+
+* backward compatibility there is
+* fixed "bug", when other query parameters does not append to uri 
+* added package-auto-discovery functional.
 
 ## Tests
 
