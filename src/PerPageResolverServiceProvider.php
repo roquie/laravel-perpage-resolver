@@ -24,6 +24,10 @@ class PerPageResolverServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        Paginator::queryParametersResolver(function () {
+            return $this->app->get('request')->all();
+        });
+
         Paginator::perPageResolver(function () {
             return (int) $this->app
                 ->get('request') // use PSR ContainerInterface

@@ -29,8 +29,10 @@ class Builder extends \Illuminate\Database\Eloquent\Builder
     public function paginate($perPage = null, $columns = ['*'], $pageName = 'page', $page = null)
     {
         $perPage = $perPage ?: Paginator::resolvePerPage();
+        $parameters = Paginator::resolveQueryParameters();
 
-        return parent::paginate($perPage, $columns, $pageName, $page);
+        return parent::paginate($perPage, $columns, $pageName, $page)
+            ->appends($parameters);
     }
 
     /**
@@ -45,7 +47,9 @@ class Builder extends \Illuminate\Database\Eloquent\Builder
     public function simplePaginate($perPage = null, $columns = ['*'], $pageName = 'page', $page = null)
     {
         $perPage = $perPage ?: Paginator::resolvePerPage();
+        $parameters = Paginator::resolveQueryParameters();
 
-        return parent::simplePaginate($perPage, $columns, $pageName, $page);
+        return parent::simplePaginate($perPage, $columns, $pageName, $page)
+            ->appends($parameters);
     }
 }
