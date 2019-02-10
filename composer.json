@@ -10,13 +10,13 @@
     }
   ],
   "require": {
-    "illuminate/database": "^5.2|^5.3|^5.4|^5.5",
-    "illuminate/pagination": "^5.2|^5.3|^5.4|^5.5",
-    "illuminate/support": "^5.2|^5.3|^5.4|^5.5"
+    "illuminate/database": "5.*",
+    "illuminate/pagination": "5.*",
+    "illuminate/support": "5.*"
   },
   "require-dev": {
     "symfony/var-dumper": "^3.2",
-    "phpunit/phpunit": "^6.3",
+    "phpunit/phpunit": "^7",
     "mockery/mockery": "^0.9.9",
     "php-coveralls/php-coveralls": "^1.0"
   },
