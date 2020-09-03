@@ -1,12 +1,11 @@
 <?php
-/**
- * Created by Roquie.
- * E-mail: roquie0@gmail.com
- * GitHub: Roquie
- * Date: 15/02/2017
- */
+
+declare(strict_types=1);
 
 namespace Roquie\LaravelPerPageResolver;
+
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Illuminate\Contracts\Pagination\Paginator as PaginatorInterface;
 
 /**
  * Class Builder
@@ -18,15 +17,15 @@ class Builder extends \Illuminate\Database\Eloquent\Builder
     /**
      * Paginate the given query.
      *
-     * @param  int  $perPage
-     * @param  array  $columns
-     * @param  string  $pageName
-     * @param  int|null  $page
+     * @param int $perPage
+     * @param array $columns
+     * @param string $pageName
+     * @param int|null $page
      * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
      *
      * @throws \InvalidArgumentException
      */
-    public function paginate($perPage = null, $columns = ['*'], $pageName = 'page', $page = null)
+    public function paginate($perPage = null, $columns = ['*'], $pageName = 'page', $page = null): LengthAwarePaginator
     {
         $perPage = $perPage ?: Paginator::resolvePerPage();
         $parameters = Paginator::resolveQueryParameters();
@@ -44,7 +43,7 @@ class Builder extends \Illuminate\Database\Eloquent\Builder
      * @param  int|null  $page
      * @return \Illuminate\Contracts\Pagination\Paginator
      */
-    public function simplePaginate($perPage = null, $columns = ['*'], $pageName = 'page', $page = null)
+    public function simplePaginate($perPage = null, $columns = ['*'], $pageName = 'page', $page = null): PaginatorInterface
     {
         $perPage = $perPage ?: Paginator::resolvePerPage();
         $parameters = Paginator::resolveQueryParameters();

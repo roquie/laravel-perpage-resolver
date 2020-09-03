@@ -1,19 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 use Illuminate\Database\Connection;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Query\Grammars\Grammar;
 use Illuminate\Database\Query\Processors\Processor;
 use Roquie\LaravelPerPageResolver\Builder;
 use Roquie\LaravelPerPageResolver\Model;
 use Roquie\LaravelPerPageResolver\Paginator;
 use Illuminate\Database\Query\Builder as IlluminateQueryBuilder;
-
-/**
- * Created by Roquie.
- * E-mail: roquie0@gmail.com
- * GitHub: Roquie
- * Date: 9/1/17
- */
 
 class BuilderTest extends TestCase
 {
@@ -46,11 +42,19 @@ class BuilderTest extends TestCase
             $this->createMock(Processor::class)
         ));
 
-        Model::setConnectionResolver(new \Illuminate\Database\ConnectionResolver([
+        // I don't know why framework calls undefined method or magick method.
+        // I think I got a mistake with class mock but this workaround works.
+        $model = new class extends Model {
+            public function hydrate() {
+                return Collection::make();
+            }
+        };
+
+        $model::setConnectionResolver(new \Illuminate\Database\ConnectionResolver([
             null => $builder->getConnection()
         ]));
 
-        $builder->setModel((new class extends Model {}));
+        $builder->setModel($model);
 
         return $builder;
     }

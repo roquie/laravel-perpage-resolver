@@ -1,13 +1,8 @@
 <?php
 
-use Roquie\LaravelPerPageResolver\Paginator;
+declare(strict_types=1);
 
-/**
- * Created by Roquie.
- * E-mail: roquie0@gmail.com
- * GitHub: Roquie
- * Date: 9/1/17
- */
+use Roquie\LaravelPerPageResolver\Paginator;
 
 class PaginatorTest extends TestCase
 {

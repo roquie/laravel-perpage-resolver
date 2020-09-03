@@ -1,10 +1,6 @@
 <?php
-/**
- * Created by Roquie.
- * E-mail: roquie0@gmail.com
- * GitHub: Roquie
- * Date: 15/02/2017
- */
+
+declare(strict_types=1);
 
 namespace Roquie\LaravelPerPageResolver;
 
@@ -22,7 +18,7 @@ class PerPageResolverServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register()
+    public function register(): void
     {
         Paginator::queryParametersResolver(function () {
             return $this->app->get('request')->all();

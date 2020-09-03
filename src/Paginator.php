@@ -1,10 +1,6 @@
 <?php
-/**
- * Created by Roquie.
- * E-mail: roquie0@gmail.com
- * GitHub: Roquie
- * Date: 15/02/2017
- */
+
+declare(strict_types=1);
 
 namespace Roquie\LaravelPerPageResolver;
 
@@ -34,7 +30,7 @@ class Paginator extends \Illuminate\Pagination\Paginator
      *
      * @param callable $resolver
      */
-    public static function perPageResolver(callable $resolver)
+    public static function perPageResolver(callable $resolver): void
     {
         static::$perPageResolver = $resolver;
     }
@@ -58,7 +54,7 @@ class Paginator extends \Illuminate\Pagination\Paginator
      *
      * @param callable $resolver
      */
-    public static function queryParametersResolver(callable $resolver)
+    public static function queryParametersResolver(callable $resolver): void
     {
         static::$queryParametersResolver = $resolver;
     }

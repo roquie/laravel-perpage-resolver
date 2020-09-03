@@ -1,10 +1,6 @@
 <?php
-/**
- * Created by Roquie.
- * E-mail: roquie0@gmail.com
- * GitHub: Roquie
- * Date: 15/02/2017
- */
+
+declare(strict_types=1);
 
 namespace Roquie\LaravelPerPageResolver;
 
@@ -18,10 +14,10 @@ trait PerPageResolverTrait
     /**
      * Create a new Eloquent query builder for the model.
      *
-     * @param  \Illuminate\Database\Query\Builder  $query
-     * @return \Illuminate\Database\Eloquent\Builder|static
+     * @param \Illuminate\Database\Query\Builder $query
+     * @return \Roquie\LaravelPerPageResolver\Builder
      */
-    public function newEloquentBuilder($query)
+    public function newEloquentBuilder($query): Builder
     {
         return new Builder($query);
     }

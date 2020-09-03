@@ -1,12 +1,13 @@
 <?php
-/**
- * Created by Roquie.
- * E-mail: roquie0@gmail.com
- * GitHub: Roquie
- * Date: 9/1/17
- */
+
+declare(strict_types=1);
+use Mockery as m;
 
 class TestCase extends PHPUnit\Framework\TestCase
 {
-
+    public function tearDown(): void
+    {
+        parent::tearDown();
+        m::close();
+    }
 }
