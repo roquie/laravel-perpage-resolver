@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Roquie\LaravelPerPageResolver;
 
+use Closure;
+
 /**
  * Class Paginator
  *
@@ -14,16 +16,16 @@ class Paginator extends \Illuminate\Pagination\Paginator
     /**
      * The per page resolver callback.
      *
-     * @var \Closure
+     * @var ?Closure
      */
-    protected static $perPageResolver;
+    protected static ?Closure $perPageResolver = null;
 
     /**
      * The query parameters resolver callback.
      *
-     * @var \Closure
+     * @var ?Closure
      */
-    protected static $queryParametersResolver;
+    protected static ?Closure $queryParametersResolver = null;
 
     /**
      * Set the per page resolver callback.
@@ -38,9 +40,9 @@ class Paginator extends \Illuminate\Pagination\Paginator
     /**
      * Resolve the per page or return the default value.
      *
-     * @return \Closure|null
+     * @return ?int
      */
-    public static function resolvePerPage()
+    public static function resolvePerPage(): ?int
     {
         if (null !== static::$perPageResolver) {
             return call_user_func(static::$perPageResolver);
@@ -62,9 +64,9 @@ class Paginator extends \Illuminate\Pagination\Paginator
     /**
      * Resolve the query parameters or return the default value.
      *
-     * @return \Closure|null
+     * @return ?array
      */
-    public static function resolveQueryParameters()
+    public static function resolveQueryParameters(): ?array
     {
         if (null !== static::$queryParametersResolver) {
             return call_user_func(static::$queryParametersResolver);
