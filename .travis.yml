@@ -18,5 +18,5 @@ before_script:
   - composer config --list --global
 
 script:
-  - vendor/bin/phpunit
+  - XDEBUG_MODE=coverage vendor/bin/phpunit
   - vendor/bin/php-coveralls
