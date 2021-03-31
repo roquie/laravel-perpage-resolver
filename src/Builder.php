@@ -6,6 +6,7 @@ namespace Roquie\LaravelPerPageResolver;
 
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Contracts\Pagination\Paginator as PaginatorInterface;
+use InvalidArgumentException;
 
 /**
  * Class Builder
@@ -21,9 +22,9 @@ class Builder extends \Illuminate\Database\Eloquent\Builder
      * @param array $columns
      * @param string $pageName
      * @param int|null $page
-     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
+     * @return LengthAwarePaginator
      *
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function paginate($perPage = null, $columns = ['*'], $pageName = 'page', $page = null): LengthAwarePaginator
     {
@@ -41,7 +42,7 @@ class Builder extends \Illuminate\Database\Eloquent\Builder
      * @param  array  $columns
      * @param  string  $pageName
      * @param  int|null  $page
-     * @return \Illuminate\Contracts\Pagination\Paginator
+     * @return PaginatorInterface
      */
     public function simplePaginate($perPage = null, $columns = ['*'], $pageName = 'page', $page = null): PaginatorInterface
     {

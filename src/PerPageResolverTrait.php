@@ -15,7 +15,7 @@ trait PerPageResolverTrait
      * Create a new Eloquent query builder for the model.
      *
      * @param \Illuminate\Database\Query\Builder $query
-     * @return \Roquie\LaravelPerPageResolver\Builder
+     * @return Builder
      */
     public function newEloquentBuilder($query): Builder
     {
