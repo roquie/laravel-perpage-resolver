@@ -19,4 +19,4 @@ before_script:
 
 script:
   - vendor/bin/phpunit
-  - vendor/bin/coveralls
+  - vendor/bin/php-coveralls
