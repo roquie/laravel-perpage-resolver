@@ -46,7 +46,21 @@ Run it!
 
 ## Upgrade
 
-So, if you update the package from `1.0.0`  to `1.1.0` version what you need to know:
+3. So, if you update the package from `1.*`  to `2.*` version what you need to know:
+
+* it breaks backwards compatibility
+* supported ONLY PHP 8.0
+* supported ONLY Laravel ^8, ^9.
+* updated a `illuminate/database` package to `^8` due to security reason.
+
+
+2. So, if you update the package from `1.1.0`  to `1.2.*` version what you need to know:
+
+* backward compatibility there is
+* supported PHP 8.0, 7.4, 7.3
+* supported Laravel ^5, ^6, ^7, ^8, ^9.
+
+1. So, if you update the package from `1.0.0`  to `1.1.0` version what you need to know:
 
 * backward compatibility there is
 * fixed "bug", when other query parameters does not append to uri
